@@ -23,6 +23,26 @@ router.get('/promociones', async (req, res) => {
   }
 });
 
+
+
+router.get('/novedades/agregar', (req, res) => {
+  res.render('admin/agregar_novedad'); // nombre del archivo de vistas
+});
+router.post('/novedades/guardar', async (req, res) => {
+  const { titulo, subtitulo, cuerpo } = req.body;
+  try {
+    await db.query(
+      'INSERT INTO promociones (titulo, subtitulo, cuerpo) VALUES (?, ?, ?)',
+      [titulo, subtitulo, cuerpo]
+    );
+    res.redirect('/admin/promociones');
+  } catch (err) {
+    console.error(err);
+    res.send('Error al guardar la promoción');
+  }
+});
+
+
 // POST cerrar sesión
 router.post('/logout', (req, res) => {
   req.session.destroy(err => {

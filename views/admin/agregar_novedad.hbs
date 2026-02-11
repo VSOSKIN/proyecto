@@ -1,0 +1,19 @@
+<form action="/admin/novedades/guardar" method="POST">
+  <div class="mb-3">
+    <label for="titulo">Título</label>
+    <input type="text" name="titulo" id="titulo" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="subtitulo">Subtítulo</label>
+    <input type="text" name="subtitulo" id="subtitulo" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label for="cuerpo">Cuerpo</label>
+    <textarea name="cuerpo" id="cuerpo" class="form-control" rows="5" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Guardar</button>
+  <a href="/admin/promociones" class="btn btn-secondary ms-2">Cancelar</a>
+</form>
