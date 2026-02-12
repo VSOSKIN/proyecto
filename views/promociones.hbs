@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between align-items-center mb-4">
   <h2>Listado de Promociones</h2>
-  <a href="/admin/novedades/agregar" class="btn btn-success" target="_blank">
+  <a href="/admin/promociones/agregar" class="btn btn-success" target="_blank">
     + Nuevo
   </a>
 </div>
@@ -27,10 +27,12 @@
             <i class="fa fa-edit"></i> Editar
           </a>
 
-          <form action="/admin/promociones/borrar/{{this.id}}" method="POST" style="display:inline-block;">
+          <form action="/admin/promociones/borrar/{{this.id}}" method="POST" style="display:inline-block;"
+            onsubmit="return confirm('¿Seguro que querés borrar esta promoción?');">
             <button type="submit" class="btn btn-sm btn-danger">
               <i class="fa fa-trash"></i> Borrar
             </button>
+
           </form>
         </td>
       </tr>

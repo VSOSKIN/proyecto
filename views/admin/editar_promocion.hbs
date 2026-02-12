@@ -1,0 +1,23 @@
+<h2>Editar promoción</h2>
+
+<form action="/admin/promociones/editar/{{promocion.id}}" method="POST">
+
+  <div class="mb-3">
+    <label>Título</label>
+    <input type="text" name="titulo" class="form-control" value="{{promocion.titulo}}" required>
+  </div>
+
+  <div class="mb-3">
+    <label>Subtítulo</label>
+    <input type="text" name="subtitulo" class="form-control" value="{{promocion.subtitulo}}">
+  </div>
+
+  <div class="mb-3">
+    <label>Cuerpo</label>
+    <textarea name="cuerpo" class="form-control">{{promocion.cuerpo}}</textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+  <a href="/admin/promociones" class="btn btn-secondary">Cancelar</a>
+
+</form>

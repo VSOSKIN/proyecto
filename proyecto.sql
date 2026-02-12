@@ -28,7 +28,7 @@ CREATE TABLE `promociones` (
   `subtitulo` text NOT NULL,
   `cuerpo` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `promociones` (
 
 LOCK TABLES `promociones` WRITE;
 /*!40000 ALTER TABLE `promociones` DISABLE KEYS */;
-INSERT INTO `promociones` VALUES (1,'perro','¡El mejor amigo peludo!','Descuento en huesos, pelotas y abrigos para que tu perro luzca increíble. ¡No olvides su selfie semanal!'),(2,'gato','Maullidos irresistibles','Promoción en rascadores, comida gourmet y juguetes que harán que tu gato gobierne la casa. ¡Incluye tutorial de siestas profesionales!'),(3,'ave','Pájaros felices','Oferta especial en semillas, jaulas decorativas y accesorios para que tus aves canten sin parar. ¡Acompañadas de consejos de canto matutino!'),(4,'pez','Fiesta acuática','Promoción en acuarios, peces exóticos y decoración submarina. ¡Convierte tu sala en un océano tropical sin mojarte!'),(5,'prueba1','prueba1','prueba1'),(6,'prueba2','prueba2','prueba2');
+INSERT INTO `promociones` VALUES (1,'perro','¡El mejor amigo peludo!','Descuento en huesos, pelotas y abrigos para que tu perro luzca increíble. ¡No olvides su selfie semanal!'),(2,'gato','Maullidos irresistibles','Promoción en rascadores, comida gourmet y juguetes que harán que tu gato gobierne la casa. ¡Incluye tutorial de siestas profesionales!'),(3,'ave','Pájaros felices','Oferta especial en semillas, jaulas decorativas y accesorios para que tus aves canten sin parar. ¡Acompañadas de consejos de canto matutino!'),(4,'pez','Fiesta acuática','Promoción en acuarios, peces exóticos y decoración submarina. ¡Convierte tu sala en un océano tropical sin mojarte!'),(8,'prueba1','prueba1 ','prueba1 yo estoy probando');
 /*!40000 ALTER TABLE `promociones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-02-11 13:39:43
+-- Dump completed on 2026-02-12 14:42:16
