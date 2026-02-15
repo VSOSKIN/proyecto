@@ -1,8 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const mysql = require('mysql2/promise');
 
-router.get('/', function(req, res) {
-  res.redirect('/admin/login');
+const db = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '',       // tu contraseña
+  database: 'proyecto',
+  port: 3306          // puerto de MySQL
 });
 
-module.exports = router;
+module.exports = pool;

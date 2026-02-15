@@ -1,50 +1,7 @@
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <h2>Listado de Promociones</h2>
-  <a href="/admin/promociones/agregar" class="btn btn-success" target="_blank">
-    + Nuevo
-  </a>
-</div>
-
-<table class="table table-dark table-striped">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Título</th>
-      <th>Subtítulo</th>
-      <th>Cuerpo</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each promociones}}
-      <tr>
-        <td>{{this.id}}</td>
-        <td>{{this.titulo}}</td>
-        <td>{{this.subtitulo}}</td>
-        <td>{{this.cuerpo}}</td>
-        <td>
-          <a href="/admin/promociones/editar/{{this.id}}" class="btn btn-sm btn-warning me-1">
-            <i class="fa fa-edit"></i> Editar
-          </a>
-
-          <form action="/admin/promociones/borrar/{{this.id}}" method="POST" style="display:inline-block;"
-            onsubmit="return confirm('¿Seguro que querés borrar esta promoción?');">
-            <button type="submit" class="btn btn-sm btn-danger">
-              <i class="fa fa-trash"></i> Borrar
-            </button>
-
-          </form>
-        </td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-<!-- Botón de Cerrar sesión -->
-<div class="text-center mt-4">
-  <form action="/admin/logout" method="POST">
-    <button type="submit" class="btn btn-secondary">
-      <i class="fa fa-sign-out-alt"></i> Cerrar sesión
-    </button>
-  </form>
-</div>
+<form action="/admin/promociones/add" method="POST" enctype="multipart/form-data">
+  <input type="text" name="titulo" placeholder="Título" required>
+  <input type="text" name="subtitulo" placeholder="Subtítulo" required>
+  <textarea name="cuerpo" placeholder="Cuerpo" required></textarea>
+  <input type="file" name="imagen" accept="image/*" required>
+  <button type="submit">Subir promoción</button>
+</form>

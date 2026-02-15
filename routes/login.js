@@ -1,35 +1,38 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const db = require('../db');
+const mysql = require("mysql2/promise");
 
-// GET login
-router.get('/login', (req, res) => {
-  res.render('login', { title: 'Login' });
+const dbConfig = {
+  host: "localhost",
+  user: "TU_USUARIO",
+  password: "TU_PASSWORD",
+  database: "proyecto",
+};
+
+router.get("/login", (req, res) => {
+  res.render("login", { title: "Login" });
 });
 
-// POST login
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   const { usuario, password } = req.body;
+  const connection = await mysql.createConnection(dbConfig);
+  const [rows] = await connection.execute(
+    "SELECT * FROM usuarios WHERE usuario=? AND password=?",
+    [usuario, password]
+  );
+  await connection.end();
 
-  try {
-    const [rows] = await db.query(
-      'SELECT * FROM usuarios WHERE usuario = ? AND password = ?',
-      [usuario, password]
-    );
-
-    if (rows.length > 0) {
-      // Usuario correcto → guardar sesión
-      req.session.user = rows[0];
-      // Redirigir a promociones
-      res.redirect('/admin/promociones');
-    } else {
-      // Usuario incorrecto
-      res.render('login', { title: 'Login', error: 'Usuario o password incorrectos' });
-    }
-  } catch (err) {
-    console.error(err);
-    res.send('Error al consultar la base de datos');
+  if (rows.length > 0) {
+    req.session.user = rows[0];
+    res.redirect("/admin/promociones");
+  } else {
+    res.render("login", { error: "Usuario o contraseña incorrecta" });
   }
+});
+
+router.get("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/admin/login");
 });
 
 module.exports = router;
